@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Name Pattern</title>
+  </head>
+  <body>
+    <input type="text" id="nameInput" placeholder="Enter your name" />
+    <button id="generatePattern">Generate Pattern</button>
+    <pre id="output"></pre>
+
+    <script>
+      document
+        .getElementById("generatePattern")
+        .addEventListener("click", function () {
+          const name = document.getElementById("nameInput").value;
+          const output = document.getElementById("output");
+          output.textContent = ""; // Clear previous output
+
+          for (let i = 1; i <= name.length; i++) {
+            let row = "";
+            for (let j = 0; j < i; j++) {
+              row += name[j % name.length] + " "; // Repeat name characters
+            }
+            output.textContent += row.trim() + "\n"; // Add new row to output
+          }
+        });
+    </script>
+  </body>
+</html>

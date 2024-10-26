@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        height: 25px;
+        width: 100px;
+        display: block;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        /* padding: 7px 20px; */
+        background: linear-gradient(to right, red, orange);
+        color: white;
+        outline: none;
+        border: none;
+      }
+    </style>
+  </head>
+  <body id="bodyColor">
+    <button onclick="changeColor()">lightblue</button>
+    <button onclick="makeRed()">red</button>
+    <button onclick="makeBlack()">Make black</button>
+    <button onclick="validataileEm() ">email_chaker</button>
+
+    <h1>I'm exploring Javascript</h1>
+
+    <button onclick="PersentMark()">Grade_chack</button>
+    <script src="script.js"></script>
+    <script src="javascript.js"></script>
+    <script>
+      //   alert("hello world");
+      //   document.write("I am exploring javascript");
+      //   let Yourname;
+      //   Yourname = prompt("Enter your name", "name");
+      //   document.write("Wellcome" + " " + Yourname);
+      //   console.log("I AM CONSOLING ON BROWSER");
+      function changeColor() {
+        document.getElementById("bodyColor").style.backgroundColor =
+          "lightblue";
+      }
+      function makeRed() {
+        document.getElementById("bodyColor").style.backgroundColor = "red";
+      }
+      function makeBlack() {
+        document.getElementById("bodyColor").style.backgroundColor = "black";
+        document.getElementById("bodyColor").style.color = "white";
+      }
+
+      // local variable
+      function ismailfuntion() {
+        let nam = "Md Ismail hossain";
+        document.write("This is" + " " + nam);
+      }
+      document.write("<br>");
+      ismailfuntion();
+      // Global variable
+      let x = "Ali";
+      function mytask() {
+        document.write("This is " + " " + x);
+      }
+      document.write("<br>");
+      mytask();
+      document.write("<br>");
+      document.write(
+        "hello" +
+          "  " +
+          "World" +
+          "<br>" +
+          "Md Ismail" +
+          "<br>" +
+          "Id" +
+          "  " +
+          "1285247"
+      );
+      // object datatype
+      document.write("<br");
+      let sum = {
+        s1: 44,
+        s2: 44,
+        s3: 45,
+      };
+      console.log(sum.s2 + sum.s3);
+      console.log(sum.s1 + sum.s2);
+      // array datatype
+      // let nam = ["ismail", "rajib", "munna", "naim", "ali"];
+      // console.log(nam);
+      // console.log(nam[1]);
+      // console.log(nam.concat("rafi", "badhon"));
+      // let letter = ["D", "G", "C", "A", "E", "F", "B"];
+      // console.log(letter.sort());
+      // console.log(letter.reverse());*/
+      let Number = ["1", "4", "7", "2", "9", "5", "3", "6", "8"];
+      console.log(Number);
+      // console.log(Number.sort());
+      // console.log(Number.reverse());
+      console.log(Number.toString());
+      // console.log(Number.toString());
+      // document.write(Number2);\
+      document.write(Number.toString());
+      document.write("<br>");
+      document.write(Number.reverse());
+      let a = [1, 4, 5, 6, 7, 9];
+      console.log(a.sort());
+      // pop data in array
+      a.pop();
+      console.log(a);
+      console.log(a.reverse());
+      console.log(a.sort());
+      console.log(a.toString());
+      // push data in array
+      // push data in array
+      a.push(8, 9);
+      console.log(a);
+      // shift in array
+      a.shift();
+      console.log(a);
+      // unshift in array
+      a.unshift(1, 2, 3);
+      console.log(a);
+    </script>
+  </body>
+</html>

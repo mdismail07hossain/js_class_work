@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Custom Alert Box</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      .alert {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .alert-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="showAlert">Show Alert</button>
+
+    <div id="customAlert" class="alert">
+      <div class="alert-content">
+        <span id="alertMessage">This is a custom alert!</span>
+        <button id="closeAlert">Close</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      document
+        .getElementById("showAlert")
+        .addEventListener("click", function () {
+          document.getElementById("customAlert").style.display = "flex";
+        });
+
+      document
+        .getElementById("closeAlert")
+        .addEventListener("click", function () {
+          document.getElementById("customAlert").style.display = "none";
+        });
+    </script>
+  </body>
+</html>
