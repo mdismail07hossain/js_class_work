@@ -1,5 +1,5 @@
 // factorial function make
-/*
+
 function myfactorial() {
   let n = prompt("enter your number:");
   if (n < 0) return undefined;
@@ -13,7 +13,7 @@ function myfactorial() {
     // window.alert(myfactorial());
   }
 }
-
+/*
 // for loops
 
 for (let x = 1; x <= 10; x++) {
