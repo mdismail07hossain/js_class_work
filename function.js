@@ -27,11 +27,11 @@ console.log(could(13, 43));
 
 (function (x, y) {
   console.log(x + y);
-})(3, 9);
+})(3, 9);*/
 function newsmy() {
   window.alert("Hello Md Ismail");
 }
-*/
+
 const now = new Date();
 console.log(now);
 
@@ -80,8 +80,8 @@ console.log(add);
 
 // ascil patta
 let p = parseInt(prompt("enter any number:"));
-for (let i = 0; i <= p; i++) {
-  for (j = 1; j <= p - i; j++) {
+for (let i = 0; i < p; i++) {
+  for (j = 1; j <= i; j++) {
     document.write("*");
     // console.log(i, j);
   }
@@ -89,8 +89,21 @@ for (let i = 0; i <= p; i++) {
 }
 let num = parseInt(prompt("enter any number:"));
 for (row = 0; row < num; row++) {
-  for (col = 1; col <= row; col++) {
+  for (col = 1; col <= num - row; col++) {
     document.write("*");
   }
+  document.write("<br>");
+}
+let height = prompt("munber:");
+for (let i = 0; i < height; i++) {
+  // Print spaces
+  for (let j = 0; j < height - i - 1; j++) {
+    document.write("&nbsp;"); // Use &nbsp; for proper spacing in HTML
+  }
+  // Print stars
+  for (let k = 0; k < 2 * i + 1; k++) {
+    document.write("*");
+  }
+  // New line after each row
   document.write("<br>");
 }
