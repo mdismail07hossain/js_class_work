@@ -27,7 +27,7 @@ console.log(could(13, 43));
 
 (function (x, y) {
   console.log(x + y);
-})(3, 9);*/
+})(3, 9);
 function newsmy() {
   window.alert("Hello Md Ismail");
 }
@@ -106,4 +106,22 @@ for (let i = 0; i < height; i++) {
   }
   // New line after each row
   document.write("<br>");
+}*/
+// prime number cheack
+let nuP = prompt("enter your number:");
+let count = 0;
+if (nuP == 0 || nuP == 1) {
+  window.alert("Not prime NOt composit");
+} else {
+  for (i = 2; i < nuP; i++) {
+    if (nuP % i == 0) {
+      count++;
+      continue;
+    }
+  }
+  if (count > 0) {
+    window.alert(" not prime");
+  } else {
+    window.alert(" prime");
+  }
 }
