@@ -1,4 +1,5 @@
 // Grade
+/*
 function mygrade() {
   const sgrade = parseInt(prompt("enter your mark;"));
   if (sgrade >= 80) {
@@ -37,7 +38,7 @@ function myeaoddn() {
     window.alert("It's a Odd number");
   }
 }
-
+*/
 // Array methods
 
 const arr = ["Monday", "Tuesday", "Thursday", "Friday", "Sunday"];
@@ -56,3 +57,53 @@ console.log(arr);
 // concat
 const narr = arr.concat("Saturday", "Wedhnesday");
 console.log(narr);
+
+// fibo
+const fibo = 10;
+let sum = 0;
+let n1 = 0;
+let n2 = 1;
+for (let i = 2; i < fibo; i++) {
+  sum = n1 + n2;
+  console.log(`${n1}+${n2}:${sum}`);
+  n1 = n2;
+  n2 = sum;
+}
+console.log(sum);
+
+// asinding
+let a = prompt("Enter first character:");
+let b = prompt("Enter second character:");
+let c = prompt("Enter third character:");
+
+let smallest, middle, largest;
+
+if (a <= b && a <= c) {
+  smallest = a;
+  if (b <= c) {
+    middle = b;
+    largest = c;
+  } else {
+    middle = c;
+    largest = b;
+  }
+} else if (b <= a && b <= c) {
+  smallest = b;
+  if (a <= c) {
+    middle = a;
+    largest = c;
+  } else {
+    middle = c;
+    largest = a;
+  }
+} else {
+  smallest = c;
+  if (a <= b) {
+    middle = a;
+    largest = b;
+  } else {
+    middle = b;
+    largest = a;
+  }
+}
+document.write(smallest + ", " + middle + ", " + largest);
