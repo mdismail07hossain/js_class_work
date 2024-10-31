@@ -1,5 +1,6 @@
 // undefined valueable variable
 // cosnt item ;
+/*
 const price = 33.44;
 const wholeThing = 86.45 + 20 * 7;
 const Name = "Willie B. Goode";
@@ -36,7 +37,7 @@ const Weeks = [
 // console.log(Days);
 console.log(Weeks);
 const days = Weeks.slice(2, 4);
-console.log(days);
+ console.log(days);*/
 
 // grade
 // function GetGrade() {
