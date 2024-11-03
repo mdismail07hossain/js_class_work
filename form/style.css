@@ -1,0 +1,57 @@
+form {
+  color: rgb(2, 15, 59);
+  font-size: 18px;
+  font-weight: 700;
+  /* height: 500px; */
+  /* width: 800px; */
+  padding: 20px 50px;
+  background: linear-gradient(to right, rgb(131, 252, 252), rgb(73, 152, 255));
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+input {
+  /* color: #fffefe; */
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  border-radius: 5px;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+textarea {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+select {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+p {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: rgb(1, 11, 47);
+  text-decoration: underline;
+}
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form_Dynamic_Data</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section>
+      <form action="#" name="f">
+        <p>User Form</p>
+        Name: <br />
+        <input type="text" name="n" /><br />
+        Email: <br />
+        <input type="email" name="e" /><br />
+        Address: <br />
+        <textarea name="add" id="" cols="30"></textarea><br />
+        Gender:
+        <input type="radio" name="Gender" value="Male" />Male
+        <input type="radio" name="Gender" value="FeMale" />FeMale
+        <br />
+        Round:
+        <select name="round" id="">
+          <option value="58">58</option>
+          <option value="59">59</option>
+          <option value="60">60</option>
+          <option value="61">61</option>
+          <option value="62">62</option>
+          <option value="63">63</option></select
+        ><br />
+        <input type="submit" value="submit" onclick="myform()" />
+        <input type="reset" value="reset" />
+      </form>
+    </section>
+
+    <script src="form.js"></script>
+  </body>
+</html>
