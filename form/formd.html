@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <style>
+    div {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    }
+    form {
+      background: linear-gradient(
+        to right,
+        rgb(204, 122, 241),
+        rgb(111, 237, 251)
+      );
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding: 50px;
+      border-radius: 10px;
+    }
+    input {
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: white;
+      background: transparent;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    input::placeholder {
+      color: white;
+    }
+
+    .sm {
+      background: linear-gradient(to right, rgb(92, 229, 7), green);
+      color: white;
+      text-transform: capitalize;
+      /* font-size: 16px; */
+    }
+    .rs {
+      background: linear-gradient(to right, rgb(251, 54, 54), rgb(160, 3, 3));
+      color: white;
+      text-transform: capitalize;
+      margin-left: 80px;
+    }
+    select {
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      color: rgb(14, 12, 12);
+      background: transparent;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+  </style>
+  <body>
+    <div>
+      <form action="#" name="form">
+        <p style="text-align: center">Login Form</p>
+        <input type="text" name="nam" placeholder="Enter your email" />
+        <br /><br />
+        <input
+          type="text"
+          name="email"
+          id="mail"
+          placeholder="Enter your email"
+        /><br /><br />
+        <select name="course" id="">
+          <option value="SSC">SSC</option>
+          <option value="HSC">HSC</option>
+          <option value="BSC">BSC</option>
+          <option value="MSC">MSC</option></select
+        ><br /><br />
+        Gender:
+        <input type="radio" name="Gender" value="Male" />Male
+        <input type="radio" name="Gender" value="FeMale" />FeMale <br /><br />
+        <input
+          class="sm"
+          type="button"
+          value="submit"
+          name="submit"
+          onclick="myform()"
+        />
+        <input class="rs" type="reset" value="reset" name="reset" />
+      </form>
+    </div>
+
+    <script>
+      function myform() {
+        var nam = document.form.nam.value;
+        var email = document.form.email.value;
+        var course = document.form.course.value;
+        var gender = document.form.Gender.value;
+        doc = open("", "", "width=400px,height=400px, top=100px,left=100px");
+        with (doc.document) {
+          write("<body style='background-color:skyblue;padding:50px'>");
+          write(
+            "<div style='background-color:white;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding:20px'>"
+          );
+          write("Name:" + nam + "<br><br>");
+          write("Email:" + email + "<br><br>");
+          write("Course:" + course + "<br><br>");
+          write("Gender:" + gender + "<br><br>");
+          write(
+            "<input style='background-color:green;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;margin-right:40px;border:none;border-radius: 5px; padding:10px'  type='button' value='Close me'  onclick='self.close()'>"
+          );
+          write(
+            "<input style='background-color:red;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;border:none;border-radius: 5px; padding:10px' type='button' value='Print me'  onclick='self.print()'>"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
