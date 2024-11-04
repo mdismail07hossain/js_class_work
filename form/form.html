@@ -8,14 +8,33 @@
   </head>
   <body>
     <section>
-      <form action="#" name="f">
-        <p>User Form</p>
-        Name: <br />
-        <input type="text" name="n" /><br />
-        Email: <br />
-        <input type="email" name="e" /><br />
-        Address: <br />
-        <textarea name="add" id="" cols="30"></textarea><br />
+      <form action="#" name="f" id="form">
+        <p>Login Form</p>
+        <!-- Name: <br /> -->
+        <input
+          type="text"
+          name="n"
+          placeholder="Enter your name.."
+          required
+        /><br />
+        <!-- Email: <br /> -->
+        <input
+          type="email"
+          name="e"
+          id="email"
+          placeholder="Enter your email.."
+          onblur="myemail()"
+          required
+        /><br />
+        <!-- Address: <br /> -->
+        <textarea
+          name="add"
+          id=""
+          cols="30"
+          placeholder="Enter your address."
+          required
+        ></textarea
+        ><br />
         Gender:
         <input type="radio" name="Gender" value="Male" />Male
         <input type="radio" name="Gender" value="FeMale" />FeMale
@@ -32,15 +51,24 @@
         Skill:
         <input type="checkbox" value="Html" name="skill" />Html
         <input type="checkbox" value="CSS" name="skill" />CSS
-        <input type="checkbox" value="JAVA" name="skill" />JAVA
+        <!-- <input type="checkbox" value="JAVA" name="skill" />JAVA -->
         <input type="checkbox" value="JS" name="skill" />JS
         <input type="checkbox" value="PHP" name="skill" />PHP
         <br />
-        <input type="submit" value="submit" onclick="myform()" />
-        <input type="reset" value="reset" />
+        <input class="sb" type="submit" value="submit" onclick="myform()" />
+        <input class="rs" type="reset" value="reset" />
       </form>
     </section>
 
     <script src="form.js"></script>
+    <script>
+      function myemail() {
+        let mail = document.getElementById("email");
+        let emailNan = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        if (!emailNan.test(mail.value)) {
+          alert("Enter a valid email");
+        }
+      }
+    </script>
   </body>
 </html>

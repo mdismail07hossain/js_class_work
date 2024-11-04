@@ -10,7 +10,7 @@ form {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
 }
 input {
-  /* color: #fffefe; */
+  color: rgb(4, 4, 4);
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -22,9 +22,18 @@ input {
   outline: none;
   border: none;
 }
+input::placeholder {
+  color: rgb(0, 0, 0);
+}
+textarea::placeholder {
+  color: rgb(0, 0, 0);
+}
 textarea {
+  color: rgb(3, 3, 3);
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
   border-radius: 5px;
+  /* font-size: 18px; */
+  font-weight: 600;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -47,11 +56,23 @@ p {
   font-size: 22px;
   font-weight: 700;
   color: rgb(1, 11, 47);
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 section {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
+}
+.sb {
+  background: linear-gradient(to right, rgb(92, 229, 7), green);
+  color: white;
+  text-transform: capitalize;
+  /* font-size: 16px; */
+}
+.rs {
+  background: linear-gradient(to right, rgb(251, 54, 54), rgb(160, 3, 3));
+  color: white;
+  text-transform: capitalize;
+  margin-left: 80px;
 }
