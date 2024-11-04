@@ -51,9 +51,12 @@
       border: none;
       border-radius: 5px;
       padding: 10px;
-      color: rgb(14, 12, 12);
+      color: rgb(255, 255, 255);
       background: transparent;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    option {
+      background-color: rgb(153, 43, 226);
     }
   </style>
   <body>
@@ -67,6 +70,7 @@
           name="email"
           id="mail"
           placeholder="Enter your email"
+          onblur="myemail()"
         /><br /><br />
         <select name="course" id="">
           <option value="SSC">SSC</option>
@@ -77,6 +81,11 @@
         Gender:
         <input type="radio" name="Gender" value="Male" />Male
         <input type="radio" name="Gender" value="FeMale" />FeMale <br /><br />
+        Skills:
+        <!-- <input type="checkbox" name="skill" />JAVA -->
+        <input type="checkbox" name="skill" value="HTML" />HTML
+        <input type="checkbox" name="skill" value="PHP" />PHP
+        <input type="checkbox" name="skill" value="JS" />JS <br /><br />
         <input
           class="sm"
           type="button"
@@ -89,11 +98,25 @@
     </div>
 
     <script>
+      function myemail() {
+        let mail = document.getElementById("mail");
+        let mailcheck = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        if (!mailcheck.test(mail.value)) {
+          alert("Enter your valid mail ");
+        }
+      }
+
       function myform() {
         var nam = document.form.nam.value;
         var email = document.form.email.value;
         var course = document.form.course.value;
         var gender = document.form.Gender.value;
+        var skill = "";
+        for (i = 0; i < document.form.skill.length; i++) {
+          if (document.form.skill[i].checked) {
+            skill += document.form.skill[i].value + " ,";
+          }
+        }
         doc = open("", "", "width=400px,height=400px, top=100px,left=100px");
         with (doc.document) {
           write("<body style='background-color:skyblue;padding:50px'>");
@@ -104,6 +127,7 @@
           write("Email:" + email + "<br><br>");
           write("Course:" + course + "<br><br>");
           write("Gender:" + gender + "<br><br>");
+          write("Skills:" + skill + "<br><br>");
           write(
             "<input style='background-color:green;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;margin-right:40px;border:none;border-radius: 5px; padding:10px'  type='button' value='Close me'  onclick='self.close()'>"
           );
