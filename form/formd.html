@@ -7,9 +7,12 @@
   </head>
   <style>
     div {
-      display: flex;
-      justify-content: center;
-      align-content: center;
+      margin: 0 auto;
+      width: 400px;
+
+      /* display: flex; */
+      /* justify-content: center; */
+      /* align-content: center; */
     }
     form {
       background: linear-gradient(
@@ -24,6 +27,7 @@
     input {
       outline: none;
       border: none;
+      /* width: 80%; */
       border-radius: 5px;
       padding: 10px;
       color: white;
@@ -39,6 +43,12 @@
       color: white;
       text-transform: capitalize;
       /* font-size: 16px; */
+    }
+
+    .sm:disabled {
+      background: grey;
+      cursor: not-allowed;
+      color: white;
     }
     .rs {
       background: linear-gradient(to right, rgb(251, 54, 54), rgb(160, 3, 3));
@@ -58,39 +68,88 @@
     option {
       background-color: rgb(153, 43, 226);
     }
+    .d {
+      width: 100%;
+    }
+    .d input {
+      width: 95%;
+    }
   </style>
   <body>
     <div>
       <form action="#" name="form">
         <p style="text-align: center">Login Form</p>
-        <input type="text" name="nam" placeholder="Enter your email" />
+        <div class="d">
+          <input
+            type="text"
+            name="nam"
+            id="name"
+            placeholder="Enter your name"
+            onchange="myname()"
+            oninput="formValidatiy()"
+          />
+          <span style="display: none" id="alert"
+            >Name will be 12 character..</span
+          >
+        </div>
         <br /><br />
-        <input
-          type="text"
-          name="email"
-          id="mail"
-          placeholder="Enter your email"
-          onblur="myemail()"
-        /><br /><br />
-        <select name="course" id="">
+        <div class="d">
+          <input
+            type="text"
+            name="email"
+            id="mail"
+            placeholder="Enter your email"
+            onchange="myemail()"
+            oninput="formValidatiy()"
+          />
+          <span style="display: none" id="emerroe">Enter a valid email..</span>
+        </div>
+        <br /><br />
+        <select name="course" id="course" oninput="formValidatiy()">
           <option value="SSC">SSC</option>
           <option value="HSC">HSC</option>
           <option value="BSC">BSC</option>
           <option value="MSC">MSC</option></select
         ><br /><br />
         Gender:
-        <input type="radio" name="Gender" value="Male" />Male
-        <input type="radio" name="Gender" value="FeMale" />FeMale <br /><br />
+        <input
+          oninput="formValidatiy()"
+          type="radio"
+          name="Gender"
+          value="Male"
+        />Male
+        <input
+          oninput="formValidatiy()"
+          type="radio"
+          name="Gender"
+          value="FeMale"
+        />FeMale <br /><br />
         Skills:
         <!-- <input type="checkbox" name="skill" />JAVA -->
-        <input type="checkbox" name="skill" value="HTML" />HTML
-        <input type="checkbox" name="skill" value="PHP" />PHP
-        <input type="checkbox" name="skill" value="JS" />JS <br /><br />
+        <input
+          oninput="formValidatiy()"
+          type="checkbox"
+          name="skill"
+          value="HTML"
+        />HTML
+        <input
+          oninput="formValidatiy()"
+          type="checkbox"
+          name="skill"
+          value="PHP"
+        />PHP
+        <input
+          oninput="formValidatiy()"
+          type="checkbox"
+          name="skill"
+          value="JS"
+        />JS <br /><br />
         <input
           class="sm"
-          type="button"
+          type="submit"
           value="submit"
           name="submit"
+          disabled
           onclick="myform()"
         />
         <input class="rs" type="reset" value="reset" name="reset" />
@@ -98,12 +157,52 @@
     </div>
 
     <script>
+      // function validateName() {
+      //   const name = document.getElementById("name");
+      //   const namePattern = /^[A-Za-z]+(?: [A-Za-z]+)*$/; // Regex for name validation
+      //   if (!name.trim(name.value)) {
+      //     return "Name cannot be empty.";
+      //   }
+      //   if (!namePattern.test(name.value)) {
+      //     return "Invalid name format. Only letters and spaces are allowed.";
+      //   }
+      //   return null; // Return null if valid
+      // }
+
+      function myname() {
+        const name = document.getElementById("name");
+        const chack = document.getElementById("alert");
+        const checkname = /^[A-Za-z ]{4,15}$/;
+        if (!checkname.test(name.value)) {
+          chack.style.display = "block";
+          chack.style.color = "red";
+          name = undefined;
+        } else {
+          chack.style.display = "none";
+        }
+      }
       function myemail() {
         let mail = document.getElementById("mail");
+        let mailerroe = document.getElementById("emerroe");
         let mailcheck = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
         if (!mailcheck.test(mail.value)) {
-          alert("Enter your valid mail ");
+          mailerroe.style.display = "block";
+          mailerroe.style.color = "red";
+          mail = undefined;
+        } else {
+          mailerroe.style.display = "none";
         }
+      }
+
+      function formValidatiy() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("mail").value.trim();
+        const course = document.getElementById("mail").value.trim();
+        const gender = document.querySelector('input[name="Gender"]:checked');
+        const skill = document.querySelector('input[name="skill"]:checked');
+
+        const submitBtn = document.querySelector(".sm");
+        submitBtn.disabled = !(name && email && course && gender && skill);
       }
 
       function myform() {
