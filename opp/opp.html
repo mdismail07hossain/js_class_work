@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>opp</title>
+  </head>
+  <body>
+    <script>
+      class Car {
+        constructor(name, model, color) {
+          this.name = name;
+          this.model = model;
+          this.color = color;
+        }
+        info() {
+          console.log(`Car name is :${this.name}`);
+          console.log(`Model name is :${this.model}`);
+          console.log(`Color name is :${this.color}`);
+        }
+      }
+      const about = new Car("Bmw", "Rc-271", "Royle-Black");
+      console.log(about.info());
+    </script>
+  </body>
+</html>

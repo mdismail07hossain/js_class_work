@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <style>
+      div {
+        margin: 0 auto;
+        width: 400px;
+      }
+      form {
+        background: linear-gradient(
+          to right,
+          rgb(204, 122, 241),
+          rgb(111, 237, 251)
+        );
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding: 50px;
+        border-radius: 10px;
+      }
+      input {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        color: white;
+        background: transparent;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      input::placeholder {
+        color: white;
+      }
+      .sm {
+        background: linear-gradient(to right, rgb(92, 229, 7), green);
+        color: white;
+        text-transform: capitalize;
+      }
+      .sm:disabled {
+        background: grey;
+        cursor: not-allowed;
+        color: white;
+      }
+      .rs {
+        background: linear-gradient(to right, rgb(251, 54, 54), rgb(160, 3, 3));
+        color: white;
+        text-transform: capitalize;
+        margin-left: 80px;
+      }
+      select {
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        color: rgb(255, 255, 255);
+        background: transparent;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      option {
+        background-color: rgb(153, 43, 226);
+      }
+      .d {
+        width: 100%;
+      }
+      .d input {
+        width: 95%;
+      }
+      /* Error styling */
+      .error {
+        display: block;
+        color: red;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form action="#" name="form">
+        <p style="text-align: center">Login Form</p>
+        <div class="d">
+          <input
+            type="text"
+            name="nam"
+            id="name"
+            placeholder="Enter your name"
+            onchange="myname()"
+            oninput="formValidatiy()"
+            required
+          />
+          <span class="error" id="alert" style="display: none"
+            >Name will be 20 characters..</span
+          >
+        </div>
+        <br /><br />
+        <div class="d">
+          <input
+            type="text"
+            name="email"
+            id="mail"
+            placeholder="Enter your email"
+            onchange="myemail()"
+            oninput="formValidatiy()"
+            required
+          />
+          <span class="error" id="emerroe" style="display: none"
+            >Enter a valid email..</span
+          >
+        </div>
+        <br /><br />
+        <select name="course" id="course" oninput="formValidatiy()" required>
+          <option value="">Select Course</option>
+          <option value="SSC">SSC</option>
+          <option value="HSC">HSC</option>
+          <option value="BSC">BSC</option>
+          <option value="MSC">MSC</option></select
+        ><br /><br />
+        Gender:
+        <input
+          oninput="formValidatiy()"
+          type="radio"
+          name="Gender"
+          value="Male"
+        />Male
+        <input
+          oninput="formValidatiy()"
+          type="radio"
+          name="Gender"
+          value="FeMale"
+        />FeMale <br /><br />
+        Skills:
+        <input
+          oninput="formValidatiy()"
+          type="checkbox"
+          name="skill"
+          value="HTML"
+        />HTML
+        <input
+          oninput="formValidatiy()"
+          type="checkbox"
+          name="skill"
+          value="PHP"
+        />PHP
+        <input
+          oninput="formValidatiy()"
+          type="checkbox"
+          name="skill"
+          value="JS"
+        />JS <br /><br />
+        <input
+          class="sm"
+          type="submit"
+          value="submit"
+          name="submit"
+          disabled
+          onclick="myform()"
+        />
+        <input class="rs" type="reset" value="reset" name="reset" />
+      </form>
+    </div>
+
+    <script>
+      function myname() {
+        const name = document.getElementById("name");
+        const chack = document.getElementById("alert");
+        const checkname = /^[A-Za-z ]{4,20}$/;
+        const submitBtn = document.querySelector(".sm");
+
+        if (!checkname.test(name.value)) {
+          chack.style.display = "block";
+          submitBtn.disabled = true; // Disable submit button if name is invalid
+        } else {
+          chack.style.display = "none";
+          formValidatiy(); // Recheck form validity
+        }
+      }
+
+      function myemail() {
+        let mail = document.getElementById("mail");
+        let mailerroe = document.getElementById("emerroe");
+        const submitBtn = document.querySelector(".sm");
+        let mailcheck = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+
+        if (!mailcheck.test(mail.value)) {
+          mailerroe.style.display = "block";
+          submitBtn.disabled = true; // Disable submit button if email is invalid
+        } else {
+          mailerroe.style.display = "none";
+          formValidatiy(); // Recheck form validity
+        }
+      }
+
+      function formValidatiy() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("mail").value.trim();
+        const course = document.getElementById("course").value.trim();
+        const gender = document.querySelector('input[name="Gender"]:checked');
+        const skill = document.querySelector('input[name="skill"]:checked');
+        const submitBtn = document.querySelector(".sm");
+
+        // Enable the submit button only if all fields are valid
+        if (name && email && course && gender && skill) {
+          submitBtn.disabled = false;
+        } else {
+          submitBtn.disabled = true; // Disable submit button if any field is invalid
+        }
+      }
+
+      function myform() {
+        var nam = document.form.nam.value;
+        var email = document.form.email.value;
+        var course = document.form.course.value;
+        var gender = document.form.Gender.value;
+        var skill = "";
+        for (i = 0; i < document.form.skill.length; i++) {
+          if (document.form.skill[i].checked) {
+            skill += document.form.skill[i].value + " ,";
+          }
+        }
+        doc = open("", "", "width=400px,height=400px, top=100px,left=100px");
+        with (doc.document) {
+          write("<body style='background-color:skyblue;padding:50px'>");
+          write(
+            "<div style='background-color:white;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding:20px'>"
+          );
+          write("Name:" + nam + "<br><br>");
+          write("Email:" + email + "<br><br>");
+          write("Course:" + course + "<br><br>");
+          write("Gender:" + gender + "<br><br>");
+          write("Skills:" + skill + "<br><br>");
+          write(
+            "<input style='background-color:green;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;margin-right:40px;border:none;border-radius: 5px; padding:10px'  type='button' value='Close me'  onclick='self.close()'>"
+          );
+          write(
+            "<input style='background-color:red;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;border:none;border-radius: 5px; padding:10px' type='button' value='Print me'  onclick='self.print()'>"
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

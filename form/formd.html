@@ -89,7 +89,7 @@
             oninput="formValidatiy()"
           />
           <span style="display: none" id="alert"
-            >Name will be 12 character..</span
+            >Name will be 20 character..</span
           >
         </div>
         <br /><br />
@@ -156,23 +156,11 @@
       </form>
     </div>
 
-    <script>
-      // function validateName() {
-      //   const name = document.getElementById("name");
-      //   const namePattern = /^[A-Za-z]+(?: [A-Za-z]+)*$/; // Regex for name validation
-      //   if (!name.trim(name.value)) {
-      //     return "Name cannot be empty.";
-      //   }
-      //   if (!namePattern.test(name.value)) {
-      //     return "Invalid name format. Only letters and spaces are allowed.";
-      //   }
-      //   return null; // Return null if valid
-      // }
-
+    <!-- <script>
       function myname() {
         const name = document.getElementById("name");
         const chack = document.getElementById("alert");
-        const checkname = /^[A-Za-z ]{4,15}$/;
+        const checkname = /^[A-Za-z ]{4,20}$/;
         if (!checkname.test(name.value)) {
           chack.style.display = "block";
           chack.style.color = "red";
@@ -189,8 +177,10 @@
           mailerroe.style.display = "block";
           mailerroe.style.color = "red";
           mail = undefined;
+          submitBtn.setAttribute = ("class", "disable");
         } else {
           mailerroe.style.display = "none";
+          submitBtn.disabled = false;
         }
       }
 
@@ -203,6 +193,88 @@
 
         const submitBtn = document.querySelector(".sm");
         submitBtn.disabled = !(name && email && course && gender && skill);
+      }
+
+      function myform() {
+        var nam = document.form.nam.value;
+        var email = document.form.email.value;
+        var course = document.form.course.value;
+        var gender = document.form.Gender.value;
+        var skill = "";
+        for (i = 0; i < document.form.skill.length; i++) {
+          if (document.form.skill[i].checked) {
+            skill += document.form.skill[i].value + " ,";
+          }
+        }
+        doc = open("", "", "width=400px,height=400px, top=100px,left=100px");
+        with (doc.document) {
+          write("<body style='background-color:skyblue;padding:50px'>");
+          write(
+            "<div style='background-color:white;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding:20px'>"
+          );
+          write("Name:" + nam + "<br><br>");
+          write("Email:" + email + "<br><br>");
+          write("Course:" + course + "<br><br>");
+          write("Gender:" + gender + "<br><br>");
+          write("Skills:" + skill + "<br><br>");
+          write(
+            "<input style='background-color:green;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;margin-right:40px;border:none;border-radius: 5px; padding:10px'  type='button' value='Close me'  onclick='self.close()'>"
+          );
+          write(
+            "<input style='background-color:red;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;border:none;border-radius: 5px; padding:10px' type='button' value='Print me'  onclick='self.print()'>"
+          );
+        }
+      }
+    </script>-->
+
+    <!-------------------------- chadgpt_modify_code -------------------->
+    <script>
+      function myname() {
+        const name = document.getElementById("name");
+        const chack = document.getElementById("alert");
+        const checkname = /^[A-Za-z ]{4,20}$/;
+        const submitBtn = document.querySelector(".sm");
+
+        if (!checkname.test(name.value)) {
+          chack.style.display = "block";
+          chack.style.color = "red";
+          submitBtn.disabled = true; // Disable submit button if name is invalid
+        } else {
+          chack.style.display = "none";
+          formValidatiy(); // Call form validation to check the overall state
+        }
+      }
+
+      function myemail() {
+        let mail = document.getElementById("mail");
+        let mailerroe = document.getElementById("emerroe");
+        const submitBtn = document.querySelector(".sm");
+        let mailcheck = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+
+        if (!mailcheck.test(mail.value)) {
+          mailerroe.style.display = "block";
+          mailerroe.style.color = "red";
+          submitBtn.disabled = true; // Disable submit button if email is invalid
+        } else {
+          mailerroe.style.display = "none";
+          formValidatiy(); // Call form validation to check the overall state
+        }
+      }
+
+      function formValidatiy() {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("mail").value.trim();
+        const course = document.getElementById("course").value.trim();
+        const gender = document.querySelector('input[name="Gender"]:checked');
+        const skill = document.querySelector('input[name="skill"]:checked');
+        const submitBtn = document.querySelector(".sm");
+
+        // Check if all fields are valid and enable/disable the submit button
+        if (name && email && course && gender && skill) {
+          submitBtn.disabled = false; // Enable the submit button if all fields are filled correctly
+        } else {
+          submitBtn.disabled = true; // Disable the submit button if any field is invalid
+        }
       }
 
       function myform() {
