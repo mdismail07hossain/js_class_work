@@ -99,7 +99,7 @@
             name="email"
             id="mail"
             placeholder="Enter your email"
-            onchange="myemail()"
+            onblur="myemail()"
             oninput="formValidatiy()"
           />
           <span style="display: none" id="emerroe">Enter a valid email..</span>
@@ -152,7 +152,13 @@
           disabled
           onclick="myform()"
         />
-        <input class="rs" type="reset" value="reset" name="reset" />
+        <input
+          class="rs"
+          type="reset"
+          value="reset"
+          name="reset"
+          onclick="myrest()"
+        />
       </form>
     </div>
 
@@ -229,6 +235,9 @@
 
     <!-------------------------- chadgpt_modify_code -------------------->
     <script>
+      function myrest() {
+        setTimeout(formValidatiy, 0);
+      }
       function myname() {
         const name = document.getElementById("name");
         const chack = document.getElementById("alert");
@@ -241,8 +250,9 @@
           submitBtn.disabled = true; // Disable submit button if name is invalid
         } else {
           chack.style.display = "none";
-          formValidatiy(); // Call form validation to check the overall state
+          // Call form validation to check the overall state
         }
+        formValidatiy();
       }
 
       function myemail() {
@@ -257,8 +267,9 @@
           submitBtn.disabled = true; // Disable submit button if email is invalid
         } else {
           mailerroe.style.display = "none";
-          formValidatiy(); // Call form validation to check the overall state
+          // Call form validation to check the overall state
         }
+        formValidatiy();
       }
 
       function formValidatiy() {
@@ -268,13 +279,25 @@
         const gender = document.querySelector('input[name="Gender"]:checked');
         const skill = document.querySelector('input[name="skill"]:checked');
         const submitBtn = document.querySelector(".sm");
+        let mailerroe = document.getElementById("emerroe");
+        const chack = document.getElementById("alert");
 
         // Check if all fields are valid and enable/disable the submit button
-        if (name && email && course && gender && skill) {
-          submitBtn.disabled = false; // Enable the submit button if all fields are filled correctly
-        } else {
-          submitBtn.disabled = true; // Disable the submit button if any field is invalid
-        }
+        // if (name && email && course && gender && skill) {
+        //   submitBtn.disabled = false; // Enable the submit button if all fields are filled correctly
+        // } else {
+        //   submitBtn.disabled = true; // Disable the submit button if any field is invalid
+        // }
+
+        submitBtn.disabled = !(
+          name &&
+          email &&
+          course &&
+          skill &&
+          gender &&
+          mailerroe.style.display === "none" &&
+          chack.style.display === "none"
+        );
       }
 
       function myform() {

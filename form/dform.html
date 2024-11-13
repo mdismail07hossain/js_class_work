@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DForm</title>
+    <style>
+      section {
+        margin: 0 auto;
+        width: 400px;
+      }
+      form {
+        background: linear-gradient(
+          to right,
+          rgb(36, 217, 230),
+          rgb(204, 110, 248)
+        );
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      }
+      .inputnam input,
+      .inputemail input {
+        width: 100%;
+      }
+      .rs {
+        padding: 7px 10px;
+        background: linear-gradient(
+          to right,
+          rgb(243, 72, 72),
+          rgb(112, 12, 4)
+        );
+        border: none;
+        color: white;
+        border-radius: 5px;
+        margin-left: 100px;
+      }
+      .sb {
+        padding: 7px 10px;
+        background: linear-gradient(to right, rgb(16, 209, 90), rgb(1, 78, 8));
+        border: none;
+        color: white;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <form action="#" name="form">
+        <div class="inputnam">
+          <label for="name">Name:</label><br />
+          <input type="text" id="nam" name="nam" onblur="namevalidtation()" />
+        </div>
+        <br />
+        <div class="inputemail">
+          <label for="email">Email:</label><br />
+          <input
+            type="text"
+            id="mail"
+            name="mail"
+            onblur="emailvalidtation()"
+          />
+        </div>
+
+        <div class="inputgender">
+          <label for="gernder">Gender:</label>
+          <input type="radio" name="gernder" value="Male" />Male
+          <input type="radio" name="gernder" value="FeMale" />FeMale
+        </div>
+        <br />
+        <div class="inputchackbox">
+          <label for="skill">Skill:</label>
+          <select name="skill" id="skill">
+            <option value="Select">Select your skill</option>
+            <option value="JS">JS</option>
+            <option value="PHP">PHP</option>
+            <option value="JAVA">JAVA</option>
+          </select>
+        </div>
+        <br />
+        <div class="button">
+          <input
+            class="sb"
+            type="submit"
+            name="submit"
+            value="submit"
+            onclick="myform()"
+          />
+          <input class="rs" type="reset" name="reset" value="reset" />
+        </div>
+      </form>
+    </section>
+
+    <script>
+      // neme validtion
+      function namevalidtation() {
+        const nam = document.getElementById("nam");
+        const namvalid = /[A-Za-z ]{6,16}$/;
+        if (!namvalid.test(nam.value)) {
+          alert("The name is under 16 letter");
+        }
+      }
+      //   email validtation
+      function emailvalidtation() {
+        const mail = document.getElementById("mail");
+        const mailvalid = /[^ ]+@[a-z]+\.[a-z]{2,4}$/;
+        if (!mailvalid.test(mail.value)) {
+          alert("Enter a valid Email");
+        }
+      }
+
+      function myform() {
+        let nam = document.form.nam.value;
+        let mail = document.form.mail.value;
+        let gen = document.form.gernder.value;
+        let skill = document.form.skill.value;
+        let me = open("", "", "width=400px,height=500px");
+        with (me.document) {
+          write(`<body style=' background: linear-gradient(
+          to right,
+          rgb(36, 217, 230),
+          rgb(204, 110, 248)
+        );padding:50px'>`);
+          write(
+            `<div style='padding:20px; border:2px solid black; background-color:white'>`
+          );
+          write("Name:" + nam + "<br> <br>");
+          write("Email:" + mail + "<br> <br>");
+          write("Gender:" + gen + "<br> <br>");
+          write("Skill:" + skill + "<br> <br>");
+          write(
+            `<input style="padding: 7px 10px;
+        background: linear-gradient(
+          to right,
+          rgb(243, 72, 72),
+          rgb(112, 12, 4)
+        );
+        border: none;
+        color: white;
+        border-radius: 5px;
+        margin-right: 50px;"  type="button" value="Close me" onclick="self.close()">`
+          );
+          write(
+            `<input style="padding: 7px 10px;
+        background: linear-gradient(to right, rgb(16, 209, 90), rgb(1, 78, 8));
+        border: none;
+        color: white;
+        border-radius: 5px;" type="button" value="Print me" onclick="self.print()">`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>
