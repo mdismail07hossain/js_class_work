@@ -15,13 +15,15 @@
       /* align-content: center; */
     }
     form {
-      background: linear-gradient(
-        to right,
+      /* background: linear-gradient( */
+      /* to right,
         rgb(204, 122, 241),
         rgb(111, 237, 251)
-      );
+      ); */
+      background-color: white;
+      color: black;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-      padding: 50px;
+      padding: 20px 40px;
       border-radius: 10px;
     }
     input {
@@ -30,12 +32,13 @@
       /* width: 80%; */
       border-radius: 5px;
       padding: 10px;
-      color: white;
+      /* color: white; */
       background: transparent;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
     input::placeholder {
-      color: white;
+      color: black;
+      font-weight: 600;
     }
 
     .sm {
@@ -61,13 +64,13 @@
       border: none;
       border-radius: 5px;
       padding: 10px;
-      color: rgb(255, 255, 255);
+      /* color: rgb(255, 255, 255); */
       background: transparent;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     }
-    option {
-      background-color: rgb(153, 43, 226);
-    }
+    /* option {
+      /* background-color: rgb(153, 43, 226); 
+    } */
     .d {
       width: 100%;
     }
@@ -75,10 +78,10 @@
       width: 95%;
     }
   </style>
-  <body>
+  <body bgcolor="grey">
     <div>
       <form action="#" name="form">
-        <p style="text-align: center">Login Form</p>
+        <h1 style="text-align: center">Login Form</h1>
         <div class="d">
           <input
             type="text"
@@ -88,7 +91,7 @@
             onchange="myname()"
             oninput="formValidatiy()"
           />
-          <span style="display: none" id="alert"
+          <span style="display: none; margin-top: 10px" id="alert"
             >Name will be 20 character..</span
           >
         </div>
@@ -102,10 +105,27 @@
             onblur="myemail()"
             oninput="formValidatiy()"
           />
-          <span style="display: none" id="emerroe">Enter a valid email..</span>
+          <span style="display: none; margin-top: 10px" id="emerroe"
+            >Enter a valid email..</span
+          >
+        </div>
+        <br /><br />
+        <div class="d">
+          <input
+            type="password"
+            name="pass"
+            id="pass"
+            placeholder="Enter your pass"
+            onblur="myepass()"
+            oninput="formValidatiy()"
+          />
+          <span style="display: none; margin-top: 10px" id="merroe"
+            >Enter a Strong password..</span
+          >
         </div>
         <br /><br />
         <select name="course" id="course" oninput="formValidatiy()">
+          <option value="SSC">Select your Cirtificat</option>
           <option value="SSC">SSC</option>
           <option value="HSC">HSC</option>
           <option value="BSC">BSC</option>
@@ -162,77 +182,6 @@
       </form>
     </div>
 
-    <!-- <script>
-      function myname() {
-        const name = document.getElementById("name");
-        const chack = document.getElementById("alert");
-        const checkname = /^[A-Za-z ]{4,20}$/;
-        if (!checkname.test(name.value)) {
-          chack.style.display = "block";
-          chack.style.color = "red";
-          name = undefined;
-        } else {
-          chack.style.display = "none";
-        }
-      }
-      function myemail() {
-        let mail = document.getElementById("mail");
-        let mailerroe = document.getElementById("emerroe");
-        let mailcheck = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
-        if (!mailcheck.test(mail.value)) {
-          mailerroe.style.display = "block";
-          mailerroe.style.color = "red";
-          mail = undefined;
-          submitBtn.setAttribute = ("class", "disable");
-        } else {
-          mailerroe.style.display = "none";
-          submitBtn.disabled = false;
-        }
-      }
-
-      function formValidatiy() {
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("mail").value.trim();
-        const course = document.getElementById("mail").value.trim();
-        const gender = document.querySelector('input[name="Gender"]:checked');
-        const skill = document.querySelector('input[name="skill"]:checked');
-
-        const submitBtn = document.querySelector(".sm");
-        submitBtn.disabled = !(name && email && course && gender && skill);
-      }
-
-      function myform() {
-        var nam = document.form.nam.value;
-        var email = document.form.email.value;
-        var course = document.form.course.value;
-        var gender = document.form.Gender.value;
-        var skill = "";
-        for (i = 0; i < document.form.skill.length; i++) {
-          if (document.form.skill[i].checked) {
-            skill += document.form.skill[i].value + " ,";
-          }
-        }
-        doc = open("", "", "width=400px,height=400px, top=100px,left=100px");
-        with (doc.document) {
-          write("<body style='background-color:skyblue;padding:50px'>");
-          write(
-            "<div style='background-color:white;border-radius: 5px;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; padding:20px'>"
-          );
-          write("Name:" + nam + "<br><br>");
-          write("Email:" + email + "<br><br>");
-          write("Course:" + course + "<br><br>");
-          write("Gender:" + gender + "<br><br>");
-          write("Skills:" + skill + "<br><br>");
-          write(
-            "<input style='background-color:green;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;margin-right:40px;border:none;border-radius: 5px; padding:10px'  type='button' value='Close me'  onclick='self.close()'>"
-          );
-          write(
-            "<input style='background-color:red;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;color:white;border:none;border-radius: 5px; padding:10px' type='button' value='Print me'  onclick='self.print()'>"
-          );
-        }
-      }
-    </script>-->
-
     <!-------------------------- chadgpt_modify_code -------------------->
     <script>
       function myrest() {
@@ -271,23 +220,34 @@
         }
         formValidatiy();
       }
+      function myepass() {
+        let pass = document.getElementById("pass");
+        let mailerroe = document.getElementById("merroe");
+        const submitBtn = document.querySelector(".sm");
+        let mailcheck =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        if (!mailcheck.test(pass.value)) {
+          mailerroe.style.display = "block";
+          mailerroe.style.color = "red";
+          submitBtn.disabled = true; // Disable submit button if email is invalid
+        } else {
+          mailerroe.style.display = "none";
+          // Call form validation to check the overall state
+        }
+        formValidatiy();
+      }
 
       function formValidatiy() {
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("mail").value.trim();
         const course = document.getElementById("course").value.trim();
+        const pass = document.getElementById("pass").value.trim();
         const gender = document.querySelector('input[name="Gender"]:checked');
         const skill = document.querySelector('input[name="skill"]:checked');
         const submitBtn = document.querySelector(".sm");
         let mailerroe = document.getElementById("emerroe");
         const chack = document.getElementById("alert");
-
-        // Check if all fields are valid and enable/disable the submit button
-        // if (name && email && course && gender && skill) {
-        //   submitBtn.disabled = false; // Enable the submit button if all fields are filled correctly
-        // } else {
-        //   submitBtn.disabled = true; // Disable the submit button if any field is invalid
-        // }
 
         submitBtn.disabled = !(
           name &&
@@ -295,6 +255,7 @@
           course &&
           skill &&
           gender &&
+          pass &&
           mailerroe.style.display === "none" &&
           chack.style.display === "none"
         );
