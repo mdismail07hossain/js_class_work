@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Form</title>
+  </head>
+  <style>
+    section {
+      margin: 0 auto;
+      width: 400px;
+    }
+    form {
+      padding: 30px 20px;
+      background: linear-gradient(
+        to right,
+        rgb(248, 236, 255),
+        rgb(255, 254, 255)
+      );
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    .boxinput input {
+      width: 100%;
+      padding: 5px;
+    }
+    .button input {
+      width: 100%;
+      color: white;
+      background: linear-gradient(to left, rgb(0, 63, 156), rgb(123, 143, 233));
+      padding: 7px 10px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+  </style>
+  <body bgcolor="grey">
+    <section>
+      <form action="#" name="mform">
+        <div class="boxinput">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter your name"
+            onchange="myname()"
+          />
+          <div id="namee" style="margin-top: 10; margin-left: 10px"></div>
+        </div>
+        <div class="boxinput">
+          <label for="email">Email:</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Enter your email"
+            onchange="myemail()"
+          />
+          <div id="eemail" style="margin-top: 10; margin-left: 10px"></div>
+        </div>
+        <div class="boxinput">
+          <label for="password">Password:</label>
+          <input
+            type="text"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            onchange="mypassword()"
+          />
+          <div id="epassword" style="margin-top: 10; margin-left: 10px"></div>
+        </div>
+        <div class="boxinput">
+          <label for="id">User ID:</label>
+          <input
+            type="number"
+            name="user_id"
+            id="user_id"
+            placeholder="Enter your user_id"
+          />
+        </div>
+        <div class="gender">
+          <label for="gender">Gender:</label>
+          <input type="radio" name="gender" value="Male" />Male
+          <input type="radio" name="gender" value="FeMale" />FeMale
+        </div>
+        <div class="skill">
+          <label for="skill">Skills:</label>
+          <input type="checkbox" name="skill" value="HTML" />HTML
+          <input type="checkbox" name="skill" value="JS" />JS
+          <input type="checkbox" name="skill" value="PHP" />PHP
+          <input type="checkbox" name="skill" value="NOT.JS" />NOT.JS
+        </div>
+        <div class="round">
+          <label for="round">Round:</label>
+          <select name="round" id="round">
+            <option value="58">58</option>
+            <option value="59">59</option>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+          </select>
+        </div>
+        <div class="button">
+          <input
+            type="submit"
+            name="submit"
+            id="submit"
+            value="Submit"
+            onclick="myform()"
+          />
+          <input type="reset" name="reset" id="reset" value="Reset" />
+        </div>
+      </form>
+    </section>
+
+    <script>
+      function myname() {
+        const name = document.getElementById("name");
+        const namee = document.getElementById("namee");
+        const checkname = /[A-Za-z ]{4,16}$/;
+        if (!checkname.test(name.value)) {
+          name.style.border = "3px solid red";
+          namee.textContent = "Your name will be under 4-16 letter..";
+          namee.style.display = "block";
+          namee.style.color = "red";
+        } else {
+          name.style.border = "3px solid green";
+          namee.style.display = "none";
+          // namee.style.color="red";
+        }
+      }
+      function myemail() {
+        const email = document.getElementById("email");
+        const eemail = document.getElementById("eemail");
+        const checkemail = /^[^ ]+@[^ ]+\.[a-z]{2,4}$/;
+        if (!checkemail.test(email.value)) {
+          email.style.border = "3px solid red";
+          eemail.textContent = "Enter a valide email address..";
+          eemail.style.display = "block";
+          eemail.style.color = "red";
+        } else {
+          email.style.border = "3px solid green";
+          eemail.style.display = "none";
+          // namee.style.color="red";
+        }
+      }
+      function mypassword() {
+        const pass = document.getElementById("password");
+        const epass = document.getElementById("epassword");
+        const checkpass =
+          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        if (!checkpass.test(pass.value)) {
+          pass.style.border = "3px solid red";
+          epass.textContent = "Enter a strong password..";
+          epass.style.display = "block";
+          epass.style.color = "red";
+        } else {
+          pass.style.border = "3px solid green";
+          epass.style.display = "none";
+          // namee.style.color="red";
+        }
+      }
+      function myform() {
+        let nam = document.mform.name.value;
+        let mail = document.mform.email.value;
+        let pass = document.mform.password.value;
+        let user_id = document.mform.user_id.value;
+
+        me = open("", "", "width=500px,height=600px,top=300px,left=300px");
+        with (me.document) {
+          write(`<body style="background-color:grey; padding:50px">`);
+          write(
+            `<h1 style="color:green;background-color:white;padding:10px">You are login succssfully</h1>`
+          );
+          write(
+            `<div style="background-color:white; padding:20px;border-radius: 10px;"> `
+          );
+          write(`Name:   ${nam} <br> <br>`);
+          write(`Email:   ${mail} <br> <br>`);
+          write(`Password:   ${pass} <br> <br>`);
+          write(`User_Id:   ${user_id} <br> <br>`);
+          write(
+            ` <input style="background-color:red;color:white;padding:7px 10px;border-radius: 5px;border:none" type="button" name="reset" id="reset" value="Close me" onclick="self.close()" />`
+          );
+          write(
+            ` <input style="background-color:skyblue;color:white;padding:7px 10px;border-radius: 5px;border:none" type="button" name="reset" id="reset" value="Print me" onclick="self.print()" />`
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

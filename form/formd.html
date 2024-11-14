@@ -9,10 +9,6 @@
     div {
       margin: 0 auto;
       width: 400px;
-
-      /* display: flex; */
-      /* justify-content: center; */
-      /* align-content: center; */
     }
     form {
       /* background: linear-gradient( */
@@ -45,6 +41,7 @@
       background: linear-gradient(to right, rgb(92, 229, 7), green);
       color: white;
       text-transform: capitalize;
+      width: 48%;
       /* font-size: 16px; */
     }
 
@@ -57,7 +54,8 @@
       background: linear-gradient(to right, rgb(251, 54, 54), rgb(160, 3, 3));
       color: white;
       text-transform: capitalize;
-      margin-left: 80px;
+      margin-top: 10px;
+      width: 48%;
     }
     select {
       outline: none;
@@ -112,7 +110,7 @@
         <br /><br />
         <div class="d">
           <input
-            type="password"
+            type="text"
             name="pass"
             id="pass"
             placeholder="Enter your pass"
@@ -196,9 +194,11 @@
         if (!checkname.test(name.value)) {
           chack.style.display = "block";
           chack.style.color = "red";
+          name.style.border = "2px solid red";
           submitBtn.disabled = true; // Disable submit button if name is invalid
         } else {
           chack.style.display = "none";
+          name.style.border = "2px solid green";
           // Call form validation to check the overall state
         }
         formValidatiy();
@@ -213,9 +213,11 @@
         if (!mailcheck.test(mail.value)) {
           mailerroe.style.display = "block";
           mailerroe.style.color = "red";
+          mail.style.border = "2px solid red";
           submitBtn.disabled = true; // Disable submit button if email is invalid
         } else {
           mailerroe.style.display = "none";
+          mail.style.border = "2px solid green";
           // Call form validation to check the overall state
         }
         formValidatiy();
@@ -230,9 +232,11 @@
         if (!mailcheck.test(pass.value)) {
           mailerroe.style.display = "block";
           mailerroe.style.color = "red";
+          pass.style.border = "2px solid red";
           submitBtn.disabled = true; // Disable submit button if email is invalid
         } else {
           mailerroe.style.display = "none";
+          pass.style.border = "2px solid green";
           // Call form validation to check the overall state
         }
         formValidatiy();
